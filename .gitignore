@@ -1,0 +1,52 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build artifacts
+build/
+dist/
+*.so
+*.dylib
+*.dll
+*.egg-info/
+*.egg
+eggs/
+
+# IDE / Editor
+.vscode/
+.kiro/
+.idea/
+*.swp
+*.swo
+*~
+
+# C++ build
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+
+# Distribution / packaging
+*.tar.gz
+*.whl
+sdist/
+wheels/
+
+# Testing
+.pytest_cache
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+
+# OS files
+.DS_Store
+Thumbs.db

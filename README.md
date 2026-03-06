@@ -97,16 +97,6 @@ Read the rest of our dedicated documentation!
 - 📖 [**Usage & API Guide**](docs/usage.md): comprehensive tutorial of all features.
 - 🏗️ [**Architecture**](docs/architecture.md): learn how the C++ ↔ Python pipeline works.
 
----
-
-## 🗺️ Roadmap
-
-- [ ] Constraint solver (springs, joints)
-- [ ] Broad-phase collision culling (Spatial partitioning/Octree)
-- [ ] GPU acceleration (CUDA)
-- [ ] WASM build for browser demos
-
----
 
 ## 🤝 Contributing
 

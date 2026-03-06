@@ -1,25 +1,28 @@
 cmake_minimum_required(VERSION 3.15)
-project(py_lumina_core LANGUAGES CXX)
+project(pylumina LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-# ── pybind11 ─────────────────────────────────────────────────────────
-find_package(pybind11 CONFIG REQUIRED)
+find_package(pybind11 REQUIRED)
 
-# ── C++ core module (header-only, built into the binding target) ─────
+# ── Extension module ────────────────────────────────────────────────
+
 pybind11_add_module(_core
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/cpp/bindings/py_lumina_bindings.cpp
+    cpp/bindings/pybind_module.cpp
+    cpp/engine/physics_engine.cpp
+    cpp/engine/integrator.cpp
+    cpp/forces/gravity.cpp
+    cpp/forces/wind.cpp
+    cpp/forces/drag.cpp
+    cpp/collision/collision.cpp
 )
 
 target_include_directories(_core PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/cpp/include
-)
-
-target_compile_options(_core PRIVATE
-    -O3 -Wall -Wextra -Wpedantic
+    ${CMAKE_CURRENT_SOURCE_DIR}/cpp/engine
+    ${CMAKE_CURRENT_SOURCE_DIR}/cpp/forces
+    ${CMAKE_CURRENT_SOURCE_DIR}/cpp/collision
 )
 
 # Install into the Python package directory
-install(TARGETS _core DESTINATION py_lumina)
+install(TARGETS _core DESTINATION pylumina)

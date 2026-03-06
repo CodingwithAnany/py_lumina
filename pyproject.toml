@@ -9,14 +9,18 @@ requires = [
 build-backend = "scikit_build_core.build"
 
 [project]
-name = "py_lumina"
-version = "0.1.0"
+name = "pylumina"
+version = "0.2.0"
 description = "High-performance physics simulation library with a C++ core engine and Pythonic API."
 readme = "README.md"
 license = {text = "MIT"}
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["pylumina", "pylumina.physics", "pylumina.utils", "pylumina.exporters"]
 requires-python = ">=3.8"
 authors = [
-    {name = "py_lumina contributors"},
+    {name = "pylumina contributors"},
 ]
 keywords = [
     "physics", "simulation", "rigid-body", "gravity",
@@ -42,11 +46,19 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
+[project.optional-dependencies]
+numpy = ["numpy>=1.20"]
+hdf5 = ["h5py>=3.0", "numpy>=1.20"]
+all = ["numpy>=1.20", "h5py>=3.0"]
+
+[project.scripts]
+pylumina = "pylumina.cli:main"
+
 [project.urls]
-Homepage = "https://github.com/yourusername/py_lumina"
-Repository = "https://github.com/yourusername/py_lumina"
-Issues = "https://github.com/yourusername/py_lumina/issues"
-Documentation = "https://github.com/yourusername/py_lumina#readme"
+Homepage = "https://github.com/yourusername/pylumina"
+Repository = "https://github.com/yourusername/pylumina"
+Issues = "https://github.com/yourusername/pylumina/issues"
+Documentation = "https://github.com/yourusername/pylumina#readme"
 
 [tool.scikit-build]
 cmake.build-type = "Release"
